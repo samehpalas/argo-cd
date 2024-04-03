@@ -1,3 +1,5 @@
+// apply on k8s cluster
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
