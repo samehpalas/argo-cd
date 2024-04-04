@@ -14,6 +14,7 @@ node {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         sh "git config user.email samehpalas33@gmail.com"
                         sh "git config user.name samehpalas"
+                        sh 'git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/argo-cd.git'
                         //sh "git switch main"
                         sh "cat app/deployment.yaml"
                         sh "sh artifact_version_update app/deployment.yaml"
@@ -22,7 +23,7 @@ node {
                         sh "cat app/deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
-                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/argo-cd.git/ HEAD:main"
+                        sh "git push origin HEAD:main"
                       
       }
     }
