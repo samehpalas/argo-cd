@@ -27,7 +27,8 @@ node {
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
                         //sh 'git push https://github.com/samehpalas/argo-cd.git HEAD:main'
-                        sh "git push origin HEAD:main"
+                        //sh "git push origin main"
+                        sh "git push https://${USER}:${PASS}@github.com/${USER}/argo-cd/ HEAD:main"
                       
       }
     }
