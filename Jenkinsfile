@@ -11,8 +11,8 @@ node {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
-                        sh 'git --global config user.email "samehpalas33@gmail.com" '
-                        sh 'git --global config user.name "samehpalas"'
+                        sh 'git config --global user.email "samehpalas33@gmail.com" '
+                        sh 'git config --global user.name "samehpalas"'
                         sh 'git remote set-url origin https://${USER}:${PASS}@github.com/samehpalas/argo-cd.git'
                         //sh "git switch master"
                         sh "cat app/deployment.yaml"
