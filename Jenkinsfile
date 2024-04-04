@@ -10,13 +10,13 @@ node {
     stage('Update GIT') {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', usernameVariable: 'X', passwordVariable: 'Y')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         //sh "git remote set-url origin https://${USER}:${PASS}@github.com/samehpalas/argo-cd.git"
-                        sh "git remote set-url origin https://{USER}:{PASS}@github.com/{USER}/argo-cd.git"
+                        sh "git remote set-url origin https://{X}:{Y}@github.com/{X}/argo-cd.git"
 
-                        sh "git config --global user.email 'samehpalas33@gmail.com'"
-                        sh "git config --global user.name 'samehpalas'"
+                        sh "git config --global user.email 'jenkins@example.com'"
+                        sh "git config --global user.name 'jenkins'"
                         //sh "git switch main"
                         sh "cat app/deployment.yaml"
                         sh "sh artifact_version_update app/deployment.yaml"
