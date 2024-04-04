@@ -22,7 +22,7 @@ node {
                         sh "cat app/deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
-                        sh "git push https://samehpalas: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@github.com/samehpalas/argo-cd.git HEAD:main"
+                        sh "git push https://samehpalas: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@github.com/samehpalas/argo-cd.git HEAD:main"
                     }
                 }
             }
