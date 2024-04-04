@@ -9,7 +9,7 @@ node {
     stage('Update GIT') {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                    withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         sh 'git config --global user.email "samehpalas33@gmail.com" '
                         sh 'git config --global user.name "samehpalas"'
@@ -22,7 +22,7 @@ node {
                         sh "cat app/deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
-                        sh "git push https://samehpalas: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@github.com/samehpalas/argo-cd.git HEAD:main"
+                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/argo-cd/ HEAD:main"
                     }
                 }
             }
