@@ -16,6 +16,7 @@ node {
                         sh "git remote set-url origin https://${X}:${Y}@github.com/${X}/argo-cd.git"
                         sh "git config --global user.email 'jenkins@example.com'"
                         sh "git config --global user.name 'jenkins'"
+                        sh "git remote -v"
                         //sh "git switch main"
                         sh "cat app/deployment.yaml"
                         sh "sh artifact_version_update app/deployment.yaml"
