@@ -9,7 +9,7 @@ node {
 
     stage('Update GIT') {
             script {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                //catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         //sh "git remote set-url origin https://${USER}:${PASS}@github.com/samehpalas/argo-cd.git"
@@ -32,5 +32,5 @@ node {
     }
   }
 }
-}
+
 
