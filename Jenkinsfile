@@ -12,9 +12,9 @@ node {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
+                        sh 'git remote set-url origin https://${USER}:${PASS}@github.com/samehpalas/argo-cd.git'
                         sh "git config user.email samehpalas33@gmail.com"
                         sh "git config user.name samehpalas"
-                        sh 'git remote set-url origin https://${USER}:${PASS}.github.com/samehpalas/argo-cd.git'
                         //sh "git switch main"
                         sh "cat app/deployment.yaml"
                         sh "sh artifact_version_update app/deployment.yaml"
