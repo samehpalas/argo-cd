@@ -13,6 +13,8 @@ node {
                     withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         //sh "git remote set-url origin https://${USER}:${PASS}@github.com/samehpalas/argo-cd.git"
+                        sh "git remote set-url origin https://{USER}:{PASS}@github.com/{USER}/argo-cd.git"
+
                         sh "git config --global user.email 'samehpalas33@gmail.com'"
                         sh "git config --global user.name 'samehpalas'"
                         //sh "git switch main"
@@ -25,7 +27,6 @@ node {
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
                         //sh 'git push https://github.com/samehpalas/argo-cd.git HEAD:main'
                         sh "git push origin HEAD:main"
-                        sh "git push https://samehpalas:${PASS}@github.com/samehpalas/argo-cd/ HEAD:main"
                       
       }
     }
