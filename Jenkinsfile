@@ -13,9 +13,9 @@ node {
                     withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         //sh "git remote set-url origin https://${USER}:${PASS}@github.com/samehpalas/argo-cd.git"
-                        sh "git remote set-url origin https://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@github.com/samehpalas/argo-cd.git"
-                        sh 'git config --global user.email "jenkins@example.com"'
-                        sh 'git config --global user.name "jenkins"'
+                        sh "git remote set-url origin https://${USER}:${PASS}@github.com/samehpalas/argo-cd.git"
+                        sh 'git config --global user.email "samehpalas33@gmail.com"'
+                        sh 'git config --global user.name "samehpalas"'
                         sh "git remote -v"
                         sh "git log --oneline"
                         //sh "git switch main"
