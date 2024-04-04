@@ -9,10 +9,10 @@ node {
     stage('Update GIT') {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    withCredentials([usernamePassword(credentialsId: 'sameh-github-cred', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
-                        sh "git config user.email eng.mohamed.zeineldin@gmail.com"
-                        sh "git config user.name zeineldin"
+                        sh "git config user.email 'samehpalas33@gmail.com'"
+                        sh "git config user.name 'samehpalas'"
                         //sh "git switch master"
                         sh "cat app/deployment.yaml"
                         sh "sh artifact_version_update app/deployment.yaml"
